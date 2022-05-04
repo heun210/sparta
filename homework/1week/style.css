@@ -1,0 +1,28 @@
+* {
+  font-family: "Stylish", sans-serif;
+}
+
+.wrap {
+  width: 450px;
+  margin: auto;
+}
+
+.price {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.img-fluid {
+  margin-bottom: 10px;
+}
+.text-wrap {
+  padding: 10px 0 10px 0;
+}
+
+.input {
+  padding-bottom: 15px;
+}
+
+.btn-wrap {
+  text-align: center;
+}
