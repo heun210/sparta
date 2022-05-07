@@ -37,39 +37,41 @@
   <body>
     <div class="wrap">
       <div class="jumbotron">
-        <h1 class="display-4">나홀로 링크 메모장!</h1>
+        <h1 id="title" class="display-4">MEMO!</h1>
         <p class="lead">
           중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다
         </p>
         <hr class="my-4" />
 
-        <a class="btn btn-primary btn-lg" href="#" role="button"
-          >포스팅박스 열기</a
-        >
+        <a id="btnPostBox" class="btn btn-primary btn-lg" href="#" role="button"
+          >포스팅박스
+        </a>
       </div>
-      <div class="form-wrap">
+      <div class="form-wrap" id="postBox">
         <div class="form-group">
-          <label for="exampleInputEmail1">아티클 URL</label>
+          <label for="urlInput">URL</label>
           <input
             type="email"
             class="form-control"
-            id="exampleInputEmail1"
+            id="urlInput"
             aria-describedby="emailHelp"
           />
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">간단 코멘트</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
+          <label for="titleInput">Title</label>
+          <input type="text" class="form-control" id="titleInput" />
         </div>
-        <button type="submit" class="btn btn-primary">기사 저장</button>
+        <div class="form-group">
+          <label for="commentInput">Comment</label>
+          <input type="text" class="form-control" id="commentInput" />
+        </div>
+        <button type="submit" id="btn-postingbox" class="btn btn-primary">
+          Save
+        </button>
       </div>
       <div>
-        <div class="card-columns">
+        <div class="card-columns" id="card-box">
           <div class="card">
             <img
               src="https://img.freepik.com/free-photo/white-cloud-on-blue-sky-and-sea_74190-4488.jpg?w=2000"
@@ -77,11 +79,9 @@
               alt="..."
             />
             <div class="card-body">
-              <a href="http://naver.com" class="card-title"
-                >여기 기사 제목이 들어가죠</a
-              >
-              <p class="card-text">기사의 요약 내용이 들어갑니다.</p>
-              <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+              <a href="http://www.google.com" class="card-title">Google</a>
+
+              <p class="card-text comment">Comment</p>
             </div>
           </div>
           <div class="card">
@@ -91,11 +91,9 @@
               alt="..."
             />
             <div class="card-body">
-              <a href="http://naver.com" class="card-title"
-                >여기 기사 제목이 들어가죠</a
-              >
-              <p class="card-text">기사의 요약 내용이 들어갑니다.</p>
-              <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+              <a href="http://www.naver.com" class="card-title">Naver</a>
+
+              <p class="card-text comment">Comment</p>
             </div>
           </div>
           <div class="card">
@@ -105,11 +103,9 @@
               alt="..."
             />
             <div class="card-body">
-              <a href="http://naver.com" class="card-title"
-                >여기 기사 제목이 들어가죠</a
-              >
-              <p class="card-text">기사의 요약 내용이 들어갑니다.</p>
-              <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+              <a href="http://www.youtube.com" class="card-title">Youtube</a>
+
+              <p class="card-text comment">Comment</p>
             </div>
           </div>
           <div class="card">
@@ -119,11 +115,9 @@
               alt="..."
             />
             <div class="card-body">
-              <a href="http://naver.com" class="card-title"
-                >여기 기사 제목이 들어가죠</a
-              >
-              <p class="card-text">기사의 요약 내용이 들어갑니다.</p>
-              <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+              <a href="http://github.com" class="card-title">GitHub</a>
+
+              <p class="card-text comment">Comment</p>
             </div>
           </div>
           <div class="card">
@@ -133,11 +127,9 @@
               alt="..."
             />
             <div class="card-body">
-              <a href="http://naver.com" class="card-title"
-                >여기 기사 제목이 들어가죠</a
-              >
-              <p class="card-text">기사의 요약 내용이 들어갑니다.</p>
-              <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+              <a href="http://hiphople.com" class="card-title">HIPHOPLE</a>
+
+              <p class="card-text comment">Comment</p>
             </div>
           </div>
           <div class="card">
@@ -147,11 +139,9 @@
               alt="..."
             />
             <div class="card-body">
-              <a href="http://naver.com" class="card-title"
-                >여기 기사 제목이 들어가죠</a
-              >
-              <p class="card-text">기사의 요약 내용이 들어갑니다.</p>
-              <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+              <a href="http://dctribe.com" class="card-title">DCTRIBE</a>
+
+              <p class="card-text comment">Comment</p>
             </div>
           </div>
         </div>

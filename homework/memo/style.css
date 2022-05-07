@@ -18,7 +18,7 @@
   font-size: 16px;
 }
 .comment {
-  color: blue;
+  color: #222d38;
   font-weight: bold;
 }
 
@@ -28,4 +28,5 @@
   border: 3px solid black;
   border-radius: 5px;
   padding: 25px;
+  display: none;
 }
