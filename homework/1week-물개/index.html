@@ -22,7 +22,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -33,6 +33,26 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $(document).ready(function () {
+        getRate();
+      });
+
+      function getRate() {
+        $.ajax({
+          type: "GET",
+          url: "http://spartacodingclub.shop/sparta_api/rate",
+          data: {},
+          success: function (response) {
+            let nowRate = response["rate"];
+            $("#price").text(nowRate);
+          },
+        });
+      }
+      function onClick() {
+        alert("주문이 완료되었습니다");
+      }
+    </script>
   </head>
   <body>
     <div class="wrap">
@@ -43,12 +63,13 @@
           alt="Responsive image"
         />
       </div>
-      <div class="text-wrap">
+      <div class="text-wrap" id="textWrap">
         <h2>이거시 물개<span class="price">가격 : 1,000,000원 / 개</span></h2>
         <p class="sub">
           이 상품으로 말할 것 같으면 물개가 물개물개 하여 물개물개한 물개로
           물개물개물개물개물개물개물개..
         </p>
+        <p id="convert">달러-원 환율 : <span id="price"></span></p>
       </div>
       <div class="input-wrap">
         <div class="input">
@@ -113,9 +134,16 @@
         </div>
       </div>
       <div class="btn-wrap">
-        <button type="button" class="btn btn-outline-primary">주문하기</button>
+        <button
+          type="button"
+          onclick="onClick()"
+          type="button"
+          class="btn btn-outline-primary"
+        >
+          주문하기
+        </button>
       </div>
     </div>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
   </body>
 </html>
