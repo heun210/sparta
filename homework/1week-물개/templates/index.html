@@ -36,6 +36,7 @@
     <script>
       $(document).ready(function () {
         getRate();
+        listing();
       });
 
       function getRate() {
@@ -49,18 +50,30 @@
           },
         });
       }
-      function onClick() {
-        alert("주문이 완료되었습니다");
-      }
-      function order_listing() {
-        //주문목록 API 연결
+
+      function listing() {
+        // 주문목록 보기 API 연결
         $.ajax({
           type: "GET",
           url: "/order",
           data: {},
           success: function (response) {
-            alert(response["msg"]);
-            window.location.reload();
+            if (response["result"] == "success") {
+              let orders = response["all_orders"];
+              for (let i = 0; i < orders.length; i++) {
+                let name = orders[i]["name"];
+                let num = orders[i]["num"];
+                let add = orders[i]["add"];
+                let call = orders[i]["call"];
+                let temp_html = `<tr>
+                      <th scope="row">${name}</th>
+                      <td>${num}</td>
+                      <td>${add}</td>
+                      <td>${call}</td>
+                    </tr>`;
+                $("#table").append(temp_html);
+              }
+            }
           },
         });
       }
@@ -82,7 +95,6 @@
           success: function (response) {
             alert(response["msg"]);
             window.location.reload();
-            console.log(order);
           },
         });
       }
@@ -129,11 +141,11 @@
                 >수량</label
               >
             </div>
-            <select class="custom-select" id="inputGroupSelect01 num">
+            <select class="custom-select" id="num">
               <option selected>-- 물개를 선택하세요 --</option>
-              <option value="1">물개</option>
-              <option value="2">물개</option>
-              <option value="3">물개</option>
+              <option value="물개">물개</option>
+              <option value="물개">물개</option>
+              <option value="물개">물개</option>
             </select>
           </div>
         </div>
@@ -173,7 +185,7 @@
       <div class="btn-wrap">
         <button
           type="button"
-          onclick="onClick()"
+          onclick="order()"
           type="button"
           class="btn btn-outline-primary"
         >
@@ -189,20 +201,7 @@
             <th scope="col">전화번호</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">coder</th>
-            <td>1</td>
-            <td>광주</td>
-            <td>606-7700</td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>
+        <tbody id="table"></tbody>
       </table>
     </div>
 

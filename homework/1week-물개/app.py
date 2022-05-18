@@ -24,20 +24,18 @@ def save_order():
     doc = {
         'name' : name_receive,
         'num': num_receive,
-        "address" : add_receive,
-        "call" : call_receive,
+        'add' : add_receive,
+        'call' : call_receive,
     }
     db.orderlist.insert_one(doc)
-    
     return jsonify({'msg': '주문완료!'})
 
 
 # 주문 목록보기(Read) API
 @app.route('/order', methods=['GET'])
 def view_orders():
-    sample_receive = request.args.get('sample_give')
-    print(sample_receive)
-    return jsonify({'msg': '이 요청은 GET!'})
+    orders = list(db.orderlist.find({}, {'_id':False}))
+    return jsonify({'result': 'success', 'all_orders':orders})
 
 
 if __name__ == '__main__':
