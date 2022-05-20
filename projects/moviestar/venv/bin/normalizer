@@ -1,4 +1,4 @@
-#!/Users/San/Desktop/Sparta/sparta/projects/moviestar/venv/bin/python3
+#!/Users/imac/Desktop/sparta/projects/moviestar/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
